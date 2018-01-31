@@ -12,13 +12,7 @@ class Search extends Component {
         const users = this.state.input === '' ? this.props.users : this.props.users.filter( user => user.name.includes(this.state.input) );
         return (
             <div>
-                <form onSubmit={(e) => {
-                    e.preventDefault();
-                    this.props.submit(e);
-                }}
-                >
-                    <input type="text" style={ {diplay: 'block', width: '100%'} }  onInput={ (e) => (this.setState( {input: e.target.value} )) }/>
-                </form>
+                <input type="text" style={ {diplay: 'block', width: '100%'} }  onInput={ (e) => (this.setState( {input: e.target.value} )) }/>
                 <select
                     name="nameSelect"
                     size={this.props.users.length}

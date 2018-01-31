@@ -93,14 +93,15 @@ class App extends Component {
             this.state.userPage === undefined ?
             <Search
                 users={this.state.users}
-                submit={(e) => {
-                  this.setState( {filter: e.target.value} );
-                }}
                 change={(e) => ( this.setState( {userPage: e.target.value} ) )}
               />
-          : <UserPage user={this.state.users.find( item => item.id === this.state.userPage)} back={() => this.setState( {userPage: undefined} )} />
+            :
+            <UserPage
+              user={this.state.users.find( item => item.id === this.state.userPage)}
+              back={() => this.setState( {userPage: undefined} )}
+            />
           }
-          </div>
+        </div>
       </div>
     );
   }
