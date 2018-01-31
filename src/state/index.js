@@ -47,7 +47,7 @@ const genId = (str1, str2, str3) => {
 
 
 
-  const reducer = ( state={...initialState, userFilter: initialState.users}, action ) => {
+  const reducer = ( state=initialState, action ) => {
     switch( action.type ) {
         case USER_SELECTED:
             return { ...state, userPage: action.payload};
