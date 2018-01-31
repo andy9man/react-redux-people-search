@@ -11,7 +11,7 @@ class Search extends Component {
         }
     }
     render() {
-        const users = this.state.input === '' ? this.props.users : this.props.users.filter( user => user.name.includes(this.state.input) );
+        const users = this.state.input === '' ? this.props.users : this.props.users.filter( user => user.name.toLowerCase().includes(this.state.input.toLowerCase()) );
         return (
             <div>
                 <input type="text" style={ {diplay: 'block', width: '100%'} }  onInput={ (e) => (this.setState( {input: e.target.value} )) }/>
