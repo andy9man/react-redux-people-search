@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
+import { USER_SELECTED } from "./state/helper.js"
 
 class Search extends Component {
     constructor(props) {
@@ -17,11 +19,8 @@ class Search extends Component {
                     name="nameSelect"
                     size={this.props.users.length}
                     style={ {width: '100%', marginTop: '20px', overflow: 'hidden'} }
-                    onChange={
-                        (e) => (
-                            this.props.change(e)
-                        )
-                    }
+                    onChange={ (e) => this.props.setUserPage(e.target.value) }
+                    onClick={ (e) => this.props.setUserPage(e.target.value) }
                 >
                     {
                     users.map((name, index) => {
@@ -35,4 +34,19 @@ class Search extends Component {
     }
 }
 
-export default Search;
+const mapStateToProps = state => {
+    return {
+        users: state.users,
+        userPage: state.userPage
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        setUserPage(userId) {
+            dispatch( {type: USER_SELECTED, payload: userId} )
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Search);

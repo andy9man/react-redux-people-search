@@ -1,7 +1,5 @@
 import {createStore} from 'redux';
-
-const INPUT_FILTER = "srhdfhnsfnfbadbfashmshnsngsnfh";
-const USER_SELECTED = "sadbadmbalkbnalbnabfnalbfnalbk";
+import { USER_SELECTED } from "./helper.js";
 
 const genId = (str1, str2, str3) => {
     const megaStr = '' + str1 + str2 + str3;
@@ -44,18 +42,13 @@ const genId = (str1, str2, str3) => {
       new User('Jerome', 'NYC', 'Physicist', 'Reading', 'email@mailamail.com'),
       new User('Millie', 'Hawkins, Indiana', 'ESP', 'Blowing up things from the upside down', 'hoppin@email.com'),
       new User('Train', 'Oaklahoma City', 'Real Engineer', 'choo choo', 'chooc.choo@email.com'),
-    ],
-
-    userFilter: [],
-    input: ''
+    ]
   }
 
 
 
   const reducer = ( state={...initialState, userFilter: initialState.users}, action ) => {
     switch( action.type ) {
-        case INPUT_FILTER:
-            return { ...state, userFilter: action.payload };
         case USER_SELECTED:
             return { ...state, userPage: action.payload};
         default:
