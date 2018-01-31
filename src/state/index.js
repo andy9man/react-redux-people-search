@@ -50,7 +50,7 @@ const genId = (str1, str2, str3) => {
   const reducer = ( state=initialState, action ) => {
     switch( action.type ) {
         case USER_SELECTED:
-            return { ...state, userPage: action.payload};
+            return { ...state, userPage: state.users.find( user => user.id === action.payload)};
         default:
             return state;
     }

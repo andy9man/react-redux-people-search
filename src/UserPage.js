@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import {USER_SELECTED} from "./state/helper.js";
 
 const UserPage = props => {
-    const user = props.users.find( item => item.id === props.userPage);
+    const user = props.userPage;
     return (
         <div>
             <h1>{user.name}</h1>
