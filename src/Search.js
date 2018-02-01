@@ -36,8 +36,7 @@ class Search extends Component {
 
 const mapStateToProps = state => {
     return {
-        users: state.users,
-        userPage: state.userPage
+        users: state.users
     }
 }
 
