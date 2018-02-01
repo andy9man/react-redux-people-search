@@ -18,7 +18,6 @@ const UserPage = props => {
 
 const mapStateToProps = state => {
     return {
-        users: state.users,
         userPage: state.userPage
     }
 }
